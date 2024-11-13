@@ -16,6 +16,8 @@ Including another URLconf
 """
 from.import views
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path , include
 
 urlpatterns = [
@@ -23,7 +25,8 @@ urlpatterns = [
     path('home/', views.home , name='home'),
     path('about/', views.about , name='about'),
     path('contact/',  views.contact , name='contact'),
-     path('', views.home, name='home'),
-       path('djangoapp/', include('djangoapp.urls')), 
+    path('', views.home, name='home'),
+    path('djangoapp/', include('djangoapp.urls')), 
+    path('djangoapp/', include('djangoapp.urls')),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

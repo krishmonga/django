@@ -6,3 +6,10 @@
     <h1 class="text-4xl font-bold text-blue-500">Hello, Tailwind!</h1>
 
 {% endblock %}
+{%for chai in chais%}
+<div class='chai-item'>
+    <img src="{{chai.image.url}}" alt="">
+    <h3>{{chai.name}}</h3>
+    test
+</div>
+{%endfor %}
